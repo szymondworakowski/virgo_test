@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+  
+  <meta content="text/html; charset=ISO-8859-2" http-equiv="content-type">
+  <title>DRUK OFSETOWY NOWE ZLECENIE</title>
+
+  
+</head>
+<body>
+
+<br>
+
+DRUK - NOWE ZLECENIE PRODUKCYJNE<br>
+
+<br>
+
+<!-- Treść komentarza 
+var chkStatus1 = document.getElementById("chkbutton1");
+var chkStatus2 = document.getElementById("chkbutton2");
+
+if (chkStatus1.checked) {
+    // do your implementation for if part
+}
+else if(chkStatus2.checked) 
+{
+   // do your implementation for else if part for checkbox2
+}
+else if(chkStatus2.checked && chkStatus2.checked)
+{
+   // do your implementation when two chechbox status is checked.
+}
+else
+{
+   // do your implementation for else part.
+}
+-->
+
+<table style="text-align: left; width: 800px;" border="0" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; width: 103px;">Numer <br>
+      </td>
+      <td style="vertical-align: top; width: 677px;"><input readonly="readonly" name="numer"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; width: 103px;">Nazwa zlecenia<br>
+      </td>
+      <td style="vertical-align: top; width: 677px;"><input size="100" name="nazwa_zlecenia"></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; width: 103px;">Klient<br>
+      </td>
+      <td style="vertical-align: top; width: 677px;">
+      <?php
+      echo "<select name='wyd' size='1'>";
+      $query = "select nrklienta, wydawca from m_klienci Group by m_klienci.wydawca order by wydawca";
+      $result = mysqli_query($link, $query) or die("Zapytanie zakończone niepowodzeniem");
+      while ($wiersz = mysqli_fetch_array ($result))
+      {
+        print ("<option value='".$wiersz["wydawca"]."'>".$wiersz["wydawca"]."</option>");}
+        echo '</select>';
+            ?>
+         <br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<form method="post" action="nowe_zlecenie.php" name="Nowe zlecenie">
+  <table style="text-align: left; width: 699px;" border="1" cellpadding="2" cellspacing="2">
+    <tbody>
+    <tr>
+        <td style="vertical-align: top; width: 200px;">Druk:<br>
+        </td>
+        <td style="vertical-align: top; width: 200px;"><input type="checkbox" name="druk1" onclick="this.form.elements['maszyna1'].disabled
+         = this.form.elements['naklad1'].disabled
+         = this.form.elements['arkusz1'].disabled = !this.checked"> DRUK 1</td>
+         <td style="vertical-align: top; width: 200px;"><input type="checkbox" name="druk2" onclick="this.form.elements['maszyna2'].disabled
+         = this.form.elements['naklad2'].disabled
+         = this.form.elements['arkusz2'].disabled = !this.checked"> DRUK 2</td>
+          <td style="vertical-align: top; width: 200px;"><input type="checkbox" name="druk3" onclick="this.form.elements['maszyna3'].disabled
+         = this.form.elements['naklad3'].disabled
+         = this.form.elements['arkusz3'].disabled = !this.checked"> DRUK 3</td>
+      </tr> 
+      <tr>
+        <td style="vertical-align: top; width: 200px;">MASZYNA:<br>
+        </td>
+        <td style="vertical-align: top; width: 200px;"><select name="maszyna1" disabled>
+    <option>SHINO</option>
+    <option>ROLAND 300</option>
+    <option>RYOBI</option>
+     </select></td>
+        <td style="vertical-align: top; width: 200px;"><select name="maszyna2" disabled>
+    <option>SHINO</option>
+    <option>ROLAND 300</option>
+    <option>RYOBI</option>
+     </select></td>
+        <td style="vertical-align: top; width: 200px;"><select name="maszyna3" disabled>
+    <option>SHINO</option>
+    <option>ROLAND 300</option>
+    <option>RYOBI</option>
+     </select></td>
+      </tr>
+      <tr>
+        <td style="vertical-align: top; width: 200px;">Nakład:<br></td>
+        <td style="vertical-align: top; width: 200px;"><input name="naklad1" value="" disabled></td>
+        <td style="vertical-align: top; width: 200px;"><input name="naklad2" value="" disabled></td>
+        <td style="vertical-align: top; width: 200px;"><input name="naklad3" value="1000" size="5" disabled></td>
+      </tr>
+      <tr>
+        <td style="vertical-align: top; width: 200px;">Ilość Arkuszy<br></td>
+        <td style="vertical-align: top; width: 200px;"><input name="arkusz1" value="" disabled></td>
+        <td style="vertical-align: top; width: 200px;"><input name="arkusz2" value="" disabled></td>
+        <td style="vertical-align: top; width: 200px;"><input name="arkusz3" value="" disabled></td>
+      </tr>
+      <tr>
+        <td style="vertical-align: top; width: 112px;"> <br>
+        </td>
+        <td style="vertical-align: top; width: 194px;"><input name="aas" value=""> </td>
+        <td style="vertical-align: top; width: 162px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 200px;"><br>
+        </td>
+      </tr>
+      <tr>
+        <td style="vertical-align: top; width: 112px;"> <br>
+        </td>
+        <td style="vertical-align: top; width: 194px;"><input name="aas" value=""> </td>
+        <td style="vertical-align: top; width: 162px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 200px;"><br>
+        </td>
+      </tr>
+      <tr>
+        <td style="vertical-align: top; width: 112px;"> <br>
+        </td>
+        <td style="vertical-align: top; width: 194px;"><input name="aas" value=""> </td>
+        <td style="vertical-align: top; width: 162px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 200px;"><br>
+        </td>
+      </tr>
+      <tr>
+        <td style="vertical-align: top; width: 112px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 194px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 162px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 200px;"><br>
+        </td>
+      </tr>
+      <tr>
+        <td style="vertical-align: top; width: 112px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 194px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 162px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 200px;"><br>
+        </td>
+      </tr>
+      <tr>
+        <td style="vertical-align: top; width: 112px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 194px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 162px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 200px;"><br>
+        </td>
+      </tr>
+      <tr>
+        <td style="vertical-align: top; width: 112px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 194px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 162px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 200px;"><br>
+        </td>
+      </tr>
+      <tr>
+        <td style="vertical-align: top; width: 112px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 194px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 162px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 200px;"><br>
+        </td>
+      </tr>
+      <tr>
+        <td style="vertical-align: top; width: 112px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 194px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 162px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 200px;"><br>
+        </td>
+      </tr>
+      <tr>
+        <td style="vertical-align: top; width: 112px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 194px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 162px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 200px;"><br>
+        </td>
+      </tr>
+      <tr>
+        <td style="vertical-align: top; width: 112px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 194px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 162px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 200px;"><br>
+        </td>
+      </tr>
+      <tr>
+        <td style="vertical-align: top; width: 112px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 194px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 162px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 200px;"><br>
+        </td>
+      </tr>
+      <tr>
+        <td style="vertical-align: top; width: 112px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 194px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 162px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 200px;"><br>
+        </td>
+      </tr>
+      <tr>
+        <td style="vertical-align: top; width: 112px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 194px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 162px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 200px;"><br>
+        </td>
+      </tr>
+      <tr>
+        <td style="vertical-align: top; width: 112px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 194px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 162px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 200px;"><br>
+        </td>
+      </tr>
+      <tr>
+        <td style="vertical-align: top; width: 112px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 194px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 162px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 200px;"><br>
+        </td>
+      </tr>
+      <tr>
+        <td style="vertical-align: top; width: 112px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 194px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 162px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 200px;"><br>
+        </td>
+      </tr>
+      <tr>
+        <td style="vertical-align: top; width: 112px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 194px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 162px;"><br>
+        </td>
+        <td style="vertical-align: top; width: 200px;"><br>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <input value="WPISZ ZLECENIE" tabindex="1" name="nowe_zlecenie_button" type="submit"></form>
+
+<br>
+
+<br>
+
+</body></html>
